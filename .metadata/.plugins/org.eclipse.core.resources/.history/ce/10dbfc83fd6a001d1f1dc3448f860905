@@ -1,0 +1,32 @@
+package com.ss;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class MapTesting {
+
+	public static void main(String args[]) {
+		Map<Integer, String> hm1 = new HashMap<Student, String>();
+
+		Student s = new Student("ss", 22, "dd");
+		Student w = new Student("ww", 24, "ff");
+		// Inserting the Elements
+		hm1.put(1, "Geeks");
+		hm1.put(2, "For");
+		System.out.println(w);
+		System.out.println(hm1.get(w));
+		w.setAge(55);
+		w.setCollege("zzz");
+		w.setName("qqq");
+		System.out.println(w);
+		System.out.println("After::"+hm1.get(w));
+		List<Entry<Integer, String>> collect2 = hm1.entrySet().stream().collect(Collectors.toList());
+		List<Integer> collect = hm1.entrySet().stream().map(Map.Entry::getKey).collect(Collectors.toList());
+		System.out.println("ss::"+collect2);
+	}
+}

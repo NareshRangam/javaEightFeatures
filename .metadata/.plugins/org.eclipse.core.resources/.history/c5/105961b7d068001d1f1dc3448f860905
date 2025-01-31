@@ -1,0 +1,10 @@
+package com.ss;
+
+
+public class Testing{
+
+	public static void main(String[] args) {
+		MyInterface my =	 () -> System.out.println("hello");
+		my.test();
+	}
+}

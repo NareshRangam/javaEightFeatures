@@ -1,0 +1,143 @@
+package com.ss;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+public class Testing  {
+
+	public static void main(String[] args) {
+		
+		
+		List<Student> studentList = new ArrayList<Student>();
+		studentList.add(new Student("Naresh", 29, "PVKK"));
+		studentList.add(new Student("Lokesh", 28, "ALTS"));
+		studentList.add(new Student("Radha", 29, "RGM"));
+		studentList.add(new Student("Nanda", 2, "PVKK"));
+		studentList.add(new Student("Nandaa", 31, "PVKK"));
+		studentList.add(new Student("Nandaaaaa", 33, "PVKK"));
+		
+		//prints studentList
+		studentList.stream().forEach(System.out::println);
+		
+		//filter student age gretaer than 28
+		List<Integer> studentAGeFilter = studentList.stream().filter(student -> student.getAge() > 28).map(Student::getAge).collect(Collectors.toList());
+		System.out.println("studentAGeFilter::"+studentAGeFilter);
+		
+		//sort the list using age
+		List<Student> SortStudent = studentList.stream().sorted(Comparator.comparing(Student::getAge)).collect(Collectors.toList());
+		System.out.println("SortStudent::"+SortStudent);
+		
+		//group the age and display names
+		Map<Integer, List<String>> groupNames = studentList.stream().collect(Collectors.groupingBy(Student::getAge,Collectors.mapping(Student::getName, Collectors.toList())));
+		System.out.println("groupNames::"+groupNames);
+		
+		//group college and get average age of student
+		Map<String, Double> averageAge = studentList.stream().collect(Collectors.groupingBy(Student::getCollege,Collectors.averagingDouble(Student::getAge)));
+		System.out.println("averageAge::"+averageAge);
+		
+		
+		
+		
+		
+			//highest frequency
+			String msg = "lokkkkkeeeshhhhhh";
+			String words = "Hello Hello Naresh Naresh welcome";
+			
+			/*
+			 * List<String> msgList = Arrays.asList(msg.split("")); Entry<String, Long>
+			 * msgHighFrequency = msgList.stream()
+			 * .collect(Collectors.groupingBy(Function.identity(),
+			 * Collectors.counting())).entrySet().stream()
+			 * .collect(Collectors.maxBy(Map.Entry.comparingByValue())).get();
+			 */
+			
+			List<String> msgList = Arrays.asList(msg.split(""));
+			    msgList.stream()
+			.collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+			//.entrySet().stream().collect(Collectors.maxBy(Map.Entry.comparingByValue())).get(); 
+			.entrySet().stream().sorted(Map.Entry.comparingByValue().reversed()).limit(1).toList();
+			  
+			
+		
+		
+			
+			
+			Map<Integer, String> customers = new HashMap<>();
+			customers.put(1, "Jhon");
+			customers.put(2, "Smith");
+			customers.put(3, "Sally");
+
+			List<Integer> numbers = Arrays.asList(11,12,33,34,35);
+			Integer reduce = numbers.stream().reduce(0,Integer::sum);
+			numbers.stream().map(i -> i+"").filter(i -> i.startsWith("3")).forEach(System.out::println);
+			numbers.stream().sorted(Collections.reverseOrder()).forEach(System.out::println);
+			
+			
+			
+			
+			System.out.println("Second highest age::"+ studentList.stream().sorted(Comparator.comparing(Student::getAge).reversed()).skip(1)
+					.limit(1).collect(Collectors.toList()));
+			
+			
+			
+			  
+			  Map<Integer, List<String>> collect = studentList.stream().filter(s -> s.getAge() >20).
+					  collect(Collectors.groupingBy(Student::getAge,Collectors.mapping(Student::getName, Collectors.toList())));
+			  System.out.println("map Name::"+collect);
+			  //s -> s.getAge()
+			  
+			 
+			  
+			  customers.forEach((id,name)->
+			  {
+				 System.out.println("key::"+id +" value::"+name); 
+			  });
+			  customers.entrySet().stream().forEach(e ->
+			  {
+				  System.out.println("key::"+e.getKey() +" value::"+e.getValue());
+			  });
+			  
+			  customers.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(System.out::println);
+				  
+			  
+			  
+			Student min = studentList.stream().min(Comparator.comparing(Student::getAge)).get();
+			System.out.println(min);
+			   studentList.stream().
+					collect(Collectors.groupingBy(Student::getCollege,Collectors.maxBy(Comparator.comparing(Student::getAge))));
+			
+			
+			   List<Integer> duplicateNumbers = Arrays.asList(11,11,12,12,33,34,35,35);
+			   List<Integer> duplicateValues = duplicateNumbers.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()))
+			   					.entrySet().stream().filter(m -> m.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList());
+			   System.out.println("duplicateValues::"+duplicateValues);
+			   
+			   List<Integer> list = Arrays.asList(1,6,4,1,2,2,7,8,4);
+				System.out.println("distinct::"+list.stream().filter(i -> i>4 && i%2==0).sorted(Collections.reverseOrder()).distinct().toList());
+				
+				List<String> listString = Arrays.asList("sss","ddddd","wwwwwwwwwww","aaaaaaa");
+				
+				String string = listString.stream().reduce((word1,word2)-> word1.length() > word2.length()?word1:word2).get();
+				System.out.println(string);
+				
+				
+			
+			
+	}
+
+	
+
+	
+}

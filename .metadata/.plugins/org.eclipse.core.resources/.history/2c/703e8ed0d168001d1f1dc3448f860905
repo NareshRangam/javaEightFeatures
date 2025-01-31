@@ -1,0 +1,19 @@
+package com.ss;
+
+import java.util.function.Consumer;
+
+public class Testing {
+
+	public static void main(String[] args) {
+		//MyInterface my =	 () -> System.out.println("hello");
+		//my.test();
+		//Testing t = new Testing();
+		
+		
+		Consumer<Integer> c = (t)->System.out.println("print::"+t);
+			c.accept(10);
+		
+	}
+
+	
+}

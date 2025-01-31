@@ -1,0 +1,29 @@
+package com.ss;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class MapTesting {
+
+	public static void main(String args[]) {
+		
+		
+		String n = "naresh";
+		String l = "Lokesh";
+		Map<String, String> hm1 = new HashMap<String, String>();
+		// Inserting the Elements
+		hm1.put(n, "Geeks");//44444
+		hm1.put(l, "For");///3333
+		
+		System.out.println("  "+ hm1.get(n));
+		n = "nanda";
+		System.out.println("  "+ hm1.get(n));
+		
+		
+	}
+}

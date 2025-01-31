@@ -1,0 +1,21 @@
+package com.ss;
+
+
+public class Testing{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Testing t = new Testing();
+		t.test();
+	
+
+	// () -> {}
+
+}
+
+	@Override
+	public void test() {
+		System.out.println("hello");
+		
+	}
+}

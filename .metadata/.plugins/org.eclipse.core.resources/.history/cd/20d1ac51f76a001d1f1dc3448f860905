@@ -1,0 +1,68 @@
+package com.ss;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+
+public class Testing  {
+
+	public static void main(String[] args) {
+		//MyInterface my =	 () -> System.out.println("hello");
+		//my.test();
+		//Testing t = new Testing();
+		
+		/*
+		 * List<Integer> list = Arrays.asList(1,2,3,4);
+		 * 
+		 * //list.stream().forEach(t -> System.out.println(t)); list.stream().filter(li
+		 * -> li % 2 ==0).forEach(li -> System.out.println(li));
+		 */
+			String msg = "lokkkkkeeeshhhhhh";
+			String words = "Hello Hello Naresh Naresh welcome";
+		
+			List<Student> studentList = new ArrayList<Student>();
+			studentList.add(new Student("Naresh", 29, "PVKK"));
+			studentList.add(new Student("Lokesh", 28, "ALTS"));
+			studentList.add(new Student("Radha", 29, "RGM"));
+			studentList.add(new Student("Nanda", 2, "OWN"));
+			
+			studentList.stream().forEach(s -> System.out.println(s));
+			studentList.stream().filter(s -> s.getAge() > 28).forEach(s -> System.out.println(s.getAge()));
+			List<String> StudentNames = studentList.stream().filter(s -> s.getAge() > 28).map(Student::getName).
+					collect(Collectors.toList());
+			System.out.println(StudentNames);
+			
+			List<Student> sortByParam = studentList.stream().sorted(Comparator.comparing(Student::getCollege)).collect(Collectors.toList());
+			System.out.println(sortByParam);
+			List<Student> sortDescByParam = studentList.stream().sorted(Comparator.comparing(Student::getCollege).reversed()).collect(Collectors.toList());
+			System.out.println(sortDescByParam);
+			
+			  Map<Integer,Set<Student>> setObj = studentList.stream().collect(Collectors.groupingBy(Student::getAge,Collectors.toSet()));
+			  
+			System.out.println("setObj::"+setObj);  
+			  Map<Integer, List<String>> collect = studentList.stream().collect(Collectors.groupingBy(Student::getAge,Collectors.mapping(Student::getName, Collectors.toList())));
+			  System.out.println("map Name::"+collect);
+			  //s -> s.getAge()
+			  Map<Character, Long> collect2 = msg.chars().mapToObj(c -> (char) c).collect(Collectors.groupingBy(c ->c,Collectors.counting()));
+			  System.out.println(collect2);
+			  List<String> stringList = Arrays.asList(msg.split(""));
+			  Map<String, Long> collect3 = stringList.stream().collect(Collectors.groupingBy(s -> s,Collectors.counting()));
+			  System.out.println("words::"+collect3);
+			  
+			
+			
+			
+			
+			
+			
+	}
+
+	
+
+	
+}

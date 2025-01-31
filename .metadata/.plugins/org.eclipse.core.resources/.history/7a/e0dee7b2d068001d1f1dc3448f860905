@@ -1,0 +1,18 @@
+package com.ss;
+
+
+public class Testing{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+
+
+ MyInterface my =	 () -> {
+		System.out.println("hello");
+		
+	};
+	my.test();
+	}
+}

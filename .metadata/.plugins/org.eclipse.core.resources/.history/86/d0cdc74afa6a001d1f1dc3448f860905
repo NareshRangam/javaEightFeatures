@@ -1,0 +1,25 @@
+package com.ss;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapTesting {
+
+	public static void main(String args[]) {
+		Map<Student, String> hm1 = new HashMap<Student, String>();
+
+		Student s = new Student("ss", 22, "dd");
+		Student w = new Student("ww", 24, "ff");
+		// Inserting the Elements
+		hm1.put(s, "Geeks");
+		hm1.put(w, "For");
+
+		for (Map.Entry mapElement : hm1.entrySet()) {
+			int key = (int) mapElement.getKey();
+			if(key ==1)
+			{
+			}
+			
+		}
+	}
+}

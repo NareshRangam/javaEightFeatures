@@ -1,0 +1,19 @@
+package com.ss;
+
+import java.util.function.Consumer;
+
+public class Testing {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+
+	Consumer<Integer> i = (Integer t) -> {
+		System.out.println("print::"+t);
+		
+	};
+	i.accept(10);
+
+}
+}

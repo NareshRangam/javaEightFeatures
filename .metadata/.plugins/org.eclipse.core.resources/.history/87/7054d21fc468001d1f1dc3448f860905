@@ -1,0 +1,18 @@
+package com.ss;
+
+import java.util.function.Consumer;
+
+public class Testing implements Consumer<Integer>{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void accept(Integer t) {
+		System.out.println("print::"+t);
+		
+	}
+
+}

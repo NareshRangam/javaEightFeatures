@@ -1,0 +1,17 @@
+package com.ss;
+
+import java.util.function.Consumer;
+
+public class Testing implements Consumer<Integer>{
+
+	public static void main(String[] args) {
+		//MyInterface my =	 () -> System.out.println("hello");
+		//my.test();
+	}
+
+	@Override
+	public void accept(Integer t) {
+		System.out.println("print::"+t);
+		
+	}
+}

@@ -1,0 +1,35 @@
+package com.ss;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+
+public class Testing  {
+
+	public static void main(String[] args) {
+		//MyInterface my =	 () -> System.out.println("hello");
+		//my.test();
+		//Testing t = new Testing();
+		
+		/*
+		 * List<Integer> list = Arrays.asList(1,2,3,4);
+		 * 
+		 * //list.stream().forEach(t -> System.out.println(t)); list.stream().filter(li
+		 * -> li % 2 ==0).forEach(li -> System.out.println(li));
+		 */
+			
+			List<Student> studentList = new ArrayList<Student>();
+			studentList.add(new Student("Naresh", 29, "PVKK"));
+			studentList.add(new Student("Lokesh", 28, "ALTS"));
+			studentList.add(new Student("Radha", 29, "RGM"));
+			studentList.add(new Student("Nanda", 2, "OWN"));
+			
+			studentList.stream().forEach(s -> System.out.println(s));
+		
+	}
+
+	
+
+	
+}
